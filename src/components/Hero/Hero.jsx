@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Blob from "../../assets/blob.svg";
