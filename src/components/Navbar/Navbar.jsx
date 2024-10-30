@@ -1,36 +1,24 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/no-unescaped-entities */ import React from "react";
-import { IoIosArrowRoundForward, IoMdMenu } from "react-icons/io";
+/* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
+import { IoIosArrowRoundForward, IoMdMenu, IoMdClose } from "react-icons/io";
 import { motion } from "framer-motion";
 
 const NavbarMenu = [
-  {
-    id: 1,
-    title: "Home",
-    path: "/",
-  },
-  {
-    id: 2,
-    title: "Services",
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "About Us",
-    link: "#",
-  },
-  {
-    id: 4,
-    title: "Our Team",
-    link: "#",
-  },
-  {
-    id: 5,
-    title: "Contact Us",
-    link: "#",
-  },
+  { id: 1, title: "Home", path: "/" },
+  { id: 2, title: "Services", path: "/services" },
+  { id: 3, title: "About Us", path: "/about" },
+  { id: 4, title: "Our Team", path: "/team" },
+  { id: 5, title: "Contact Us", path: "/contact" },
 ];
+
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className="relative z-20">
       <motion.div
@@ -42,7 +30,7 @@ const Navbar = () => {
         <div>
           <h1 className="font-bold text-2xl">The Coding Journey</h1>
         </div>
-        {/* Menu section */}
+        {/* Desktop Menu section */}
         <div className="hidden lg:block">
           <ul className="flex items-center gap-3">
             {NavbarMenu.map((menu) => (
@@ -56,7 +44,6 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-
             <button className="primary-btn flex items-center gap-2 group">
               Get Started
               <IoIosArrowRoundForward className="text-xl group-hover:translate-x-2 group-hover:-rotate-45 duration-300" />
@@ -65,9 +52,38 @@ const Navbar = () => {
         </div>
         {/* Mobile Hamburger menu section */}
         <div className="lg:hidden">
-          <IoMdMenu className="text-4xl" />
+          <button onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? (
+              <IoMdClose className="text-4xl" />
+            ) : (
+              <IoMdMenu className="text-4xl" />
+            )}
+          </button>
         </div>
       </motion.div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white absolute top-20 left-0 w-full z-10 shadow-md">
+          <ul className="flex flex-col items-center gap-4 py-6">
+            {NavbarMenu.map((menu) => (
+              <li key={menu.id}>
+                <a
+                  href={menu.path}
+                  className="text-lg font-medium hover:text-secondary"
+                  onClick={toggleMobileMenu}
+                >
+                  {menu.title}
+                </a>
+              </li>
+            ))}
+            <button className="primary-btn flex items-center gap-2 mt-4">
+              Get Started
+              <IoIosArrowRoundForward className="text-xl" />
+            </button>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
