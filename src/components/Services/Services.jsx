@@ -187,9 +187,7 @@ const Services = () => {
   return (
     <section className="bg-white">
       <div className="container pb-14 pt-16 overflow-hidden">
-        <h1 className="text-4xl font-bold text-left pb-10">
-          Services We Provide
-        </h1>
+        <h1 className="text-4xl font-bold text-left pb-10">Services NO 1</h1>
         <hr className="bold" />
         <div className="flex pb-14 pt-16">
           <motion.div
@@ -218,9 +216,7 @@ const Services = () => {
           </motion.div>
         </div>
 
-        <h1 className="text-4xl font-bold text-left pb-10">
-          Services We Provide
-        </h1>
+        <h1 className="text-4xl font-bold text-left pb-10 ">Services NO 2</h1>
         <div className="flex pb-14 pt-16">
           <motion.div
             className="flex gap-8"
@@ -247,9 +243,7 @@ const Services = () => {
             ))}
           </motion.div>
         </div>
-        <h1 className="text-4xl font-bold text-left pb-10">
-          Services We Provide
-        </h1>
+        <h1 className="text-4xl font-bold text-left pb-10">Services NO 3</h1>
         <div className="flex pb-14 pt-16">
           <motion.div
             className="flex gap-8"
