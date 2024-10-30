@@ -64,7 +64,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white absolute top-20 left-0 w-full z-10 shadow-md">
+        <div className="lg:hidden bg-black text-white absolute top-20 left-0 w-full z-10 shadow-md">
           <ul className="flex flex-col items-center gap-4 py-6">
             {NavbarMenu.map((menu) => (
               <li key={menu.id}>
